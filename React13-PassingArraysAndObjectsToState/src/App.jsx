@@ -1,34 +1,34 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function App()
+{
+  const [counters, setCounters] = useState([{ id: 1, value: 0 }]);
+  //  You can store arrays objects or even more complex data structure in state
+  // Counter = {id:1,value:0}
+  // When 1 Counter = [{ id: 1, value: 0 }]
+  // When 2 Counter = [{ id: 1, value: 0 },{ id: 2, value: 0 }]
+  // When 3 Counter = [{ id: 1, value: 0 },{ id: 2, value: 0 },{ id: 3, value: 0 }]
+  const addCounter = () =>
+  {
+    setCounters([...counters, { id: counters.length + 1, value: 0 }])
+  }
+  const incrementCounter = (id) =>
+  {
+    setCounters(counters.map(counter =>
+      counter.id === id ? {...counter,value: counter.value+1} : counter
+    )
+  );
+  };
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='app-container'>
+      <button onClick={addCounter}>Add Counter</button>
+      <ul>
+        {counters.map((counter => (
+          <li key={counter.id}>{counter.id} : {counter.value} <button onClick={() => incrementCounter(counter.id)}>Increment</button></li>
+        )))}
+      </ul>
+    </div>
   )
 }
 
