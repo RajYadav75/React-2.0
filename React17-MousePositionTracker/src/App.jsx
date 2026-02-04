@@ -1,13 +1,12 @@
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import ParentComponent from './ParentComponent'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div>
-
+      <ParentComponent />
     </div>
   )
 }
