@@ -1,8 +1,8 @@
 import './App.css'
-// -App = Data
-//   -ComponentA 
-//    -ComponentB
-//     -ThemedComponent =  Needs Theme
+// - App = Data
+//   - ComponentA 
+//    - ComponentB
+//     - ThemedComponent =  Needs Theme
 
 function App()
 {
