@@ -16,22 +16,33 @@ import { useContext } from 'react';
 // <MyContext.Provider value = {someValue}>
 //  <ComponentA />
 // </MyContext.Provider>
+
+// Context.Provider is used to provide a modified value to the 
+// components within its tree. This value is only accessible to the 
+// components wrapped by the Provider.
 const ThemeContext = createContext('light');
 function App()
 {
-  const [theme,setTheme] = useState('light');
+  const [theme, setTheme] = useState('light');
 
-  const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light'?'dark':'light'));
+  const toggleTheme = () =>
+  {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   };
   return (
-    <ThemeContext.Provider value={theme}>
-      <div style={{ border: '2px solid black', padding: '20px' }}>
-        <h1>App (Parent)</h1>
-        <button onClick={toggleTheme}>Toggle Theme</button>
-        <ComponentA />
-      </div>
-    </ThemeContext.Provider>
+    <div>
+      <GlobalComponent />
+      <ThemeContext.Provider value={theme}>
+        <div style={{ border: '2px solid black', padding: '20px' }}>
+          <h1>App (Parent)</h1>
+          <button onClick={toggleTheme}>Toggle Theme</button>
+          <ComponentA />
+        </div>
+      </ThemeContext.Provider>
+      <ThemeContext.Provider value='dark'>
+        <GlobalComponent />
+      </ThemeContext.Provider>
+    </div>
   )
 }
 
@@ -43,25 +54,35 @@ function ComponentA()
       <ComponentB />
     </div>
   )
-  function ComponentB()
-  {
-    return (
-      <div style={{ border: '2px solid black', padding: '20px' }}>
-        <h1>ComponentB   (Child)</h1>
-        <ThemedComponent />
-      </div>
-    )
-  }
-  function ThemedComponent()
-  {
-    const theme = useContext(ThemeContext);
-    return (
-      <div style={{ border: '2px solid black', padding: '20px' }}>
-        <h1>ThemedComponent  (Child)</h1>
-        <div>The current theme is : {theme}</div>
-      </div>
-    )
-  }
+}
+function ComponentB()
+{
+  return (
+    <div style={{ border: '2px solid black', padding: '20px' }}>
+      <h1>ComponentB   (Child)</h1>
+      <ThemedComponent />
+    </div>
+  )
+}
+function ThemedComponent()
+{
+  const theme = useContext(ThemeContext);
+  return (
+    <div style={{ border: '2px solid black', padding: '20px' }}>
+      <h1>ThemedComponent  (Child)</h1>
+      <div>The current theme is : {theme}</div>
+    </div>
+  )
+}
+function GlobalComponent()
+{
+  const theme = useContext(ThemeContext);
+  return (
+    <div style={{ border: '2px solid purple', padding: '20px' }}>
+      <h1>GlobalComponent  (OutSide Provider)</h1>
+      <div>The current theme is : {theme}</div>
+    </div>
+  )
 }
 
 export default App;
