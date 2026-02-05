@@ -1,3 +1,4 @@
+import Another from './Another';
 import './App.css'
 import { useEffect, useRef, useState } from 'react';
 // useRef 
@@ -32,6 +33,9 @@ function App() {
       <button onClick={incrementStateCount}>Increment State Count</button><br/>
       <p>Ref Count : {refCount.current}</p>
       <button onClick={incrementRefCount}>Increment Ref Count</button>
+      <div>
+        <Another />
+      </div>
     </div>
   )
 }
