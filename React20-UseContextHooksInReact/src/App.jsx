@@ -30,7 +30,7 @@ function ComponentA({ theme })
     return (
       <div style={{ border: '2px solid black', padding: '20px' }}>
         <h1>ComponentB   (Child)</h1>
-        <ComponentB theme={theme} />
+        <ThemedComponent theme={theme} />
       </div>
     )
   }
@@ -43,5 +43,6 @@ function ComponentA({ theme })
       </div>
     )
   }
+}
 
-  export default App
+  export default App;
