@@ -8,12 +8,13 @@ import UseCounter from './UseCounter'
 // Start with 'use..."
 
 function App() {
-  const {count,incrementCount,decrementCount}  = UseCounter();
+  const {count,incrementCount,decrementCount,reset}  = UseCounter();
   return (
     <div>
       <h1>Count: {count}</h1>
       <button onClick={incrementCount}>Increment</button>
       <button onClick={decrementCount}>Decrement</button>
+      <button onClick={reset}>Reset</button>
     </div>
   )
 }
