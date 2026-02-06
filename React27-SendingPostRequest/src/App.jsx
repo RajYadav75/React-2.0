@@ -1,6 +1,19 @@
 import axios from 'axios';
 import './App.css';
 import { useState } from 'react';
+// Request Interceptor
+axios.interceptors.request.use(request => {
+  // console.log(`Starting Request`);
+  console.log(`Starting Request`,request);
+  return request;
+});
+
+// Response Interceptor
+axios.interceptors.response.use(response => {
+  console.log(`Response `,response);
+  return response;
+  
+})
 function App()
 {
   const [data,setData] = useState();
