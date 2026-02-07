@@ -9,7 +9,7 @@ function App() {
   return (
     <div>
       <h1>Forms in React</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit = {handleSubmit(onSubmit)}>
         <label>
           Name:
             <input {...register('name')} />
