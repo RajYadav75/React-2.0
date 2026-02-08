@@ -23,11 +23,13 @@ function App() {
           Name:
             <input {...register('name')} />
         </label>
+          <br/>
 
         <label>
           Email:
             <input {...register('email')} />
         </label>
+          <br/>
           <button type='submit'>submit</button>
       </form>
     </div>
