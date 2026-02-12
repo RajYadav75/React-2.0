@@ -5,6 +5,7 @@ import About from "./component/About.jsx";
 import Contact from "./component/Contact.jsx";
 import Team from "./component/Team.jsx";
 import NotFound from "./component/NotFound.jsx";
+import CurrentLocation from "./component/CurrentLocation.jsx";
 
 
 /*
@@ -35,6 +36,7 @@ function App() {
                         {/*<li><Link to="/team" className='text-white hover:text-red-600 font-medium transition duration-300'>Team</Link></li>*/}
                     </ul>
                 </nav>
+                <CurrentLocation />
                 <div className="container mx-auto py-8">
                     <Routes>
                         <Route path="/" element={<Home />} />
