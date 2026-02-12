@@ -8,7 +8,7 @@ function About() {
 
     const urlParams = new URLSearchParams(window.location.search);
     const topicFromUrl = urlParams.get("topic");
-    console.log("UseSearchParams ",topic);
+    // console.log("UseSearchParams ",topic);
     console.log("UseSearchParams ",topicFromUrl);
     const topic = searchParams.get("topic")  || 'general';
     const handleTopic = (newTopic) => {
