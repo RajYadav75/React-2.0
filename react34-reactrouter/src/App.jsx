@@ -6,6 +6,7 @@ import Contact from "./component/Contact.jsx";
 import Team from "./component/Team.jsx";
 import NotFound from "./component/NotFound.jsx";
 import CurrentLocation from "./component/CurrentLocation.jsx";
+import Dashboard from "./component/Dashboard.jsx";
 
 
 /*
@@ -45,6 +46,7 @@ function App() {
                             <Route path="team" element={<Team />} />
                         </Route>
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
