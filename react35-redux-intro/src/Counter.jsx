@@ -8,7 +8,7 @@ TODO: useDispatch is another React-Redux hook that lets your component send acti
 
 */
 const Counter = () => {
-    const count = useSelector((state) => state.count);
+    const count = useSelector((state) => state.counter.count);
     const dispatch = useDispatch();
     return(
         <div>
